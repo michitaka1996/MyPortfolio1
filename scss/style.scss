@@ -1,0 +1,381 @@
+//コンポーネントごとにcssをまとめてかけるのがsassの特徴
+
+
+
+
+
+
+
+
+
+
+////////
+//@mixin
+//あとで@includeで継承する
+//まず、スマホやタブレットでは、widthを規定しているので各ブレークポイントを設定している
+
+////////
+
+//ブレークポイント、
+$breakpoints:(
+    'sm': 'screen and (max-width: 414px)',
+    'md': 'screen and (max-width: 768px)',
+    'lg': 'screen and (max-width: 1000px)',
+    'xl': 'screen and (max-widh: 1200px)'
+) !default;
+
+
+//デフォルトをスマホ対応にする
+//関数の書き方と変わらない
+//map-get()の第１引数には変数名、第２引数にマップ型のキーを渡すと、マップ型の値が返ってくる
+@mixin mq($breakpoint: sm){
+    //当て込みたいスタイル
+    //メディアクエリ
+    //map-getとはさっきのマップ型変数
+    @media #{map-get($breakpoints, $breakpoint)} {
+        //↑はこんな感じになる
+        //screen and (max-width: 414px){
+        //@contentとすることで、実際に呼び出した際に
+        //書いたコードがこの中に入ってくる
+        //つまり@include mq()に渡している
+        @content; 
+    } 
+}
+
+
+
+
+
+
+
+//メインカラー　サブカラー
+$font-color_default: #777;
+$font-color_sub: #e37b89; // TODO:リファクタ必要
+$bg-color_gray:  #f8f7fc;
+
+//ピクセル
+//site-width
+//フォントサイズ 大中小 デフォルト
+//大 l xl xxl 3l
+
+$site-width : 980px;
+$font-size_default: 16px;
+$font-size-s:14px;
+$font-size-m:18px;
+$font-size-l:20px;
+$font-size-xl:24px;
+$font-size-xxl:28px;
+$font-size-3l:38px;
+
+
+//スペース　大中小
+//大 l xl xxl 3l
+$space-s:5px;
+$space-m:10px;
+$space-l:15px;
+$space-xl:20px;
+$space-xxl:30px;
+$space-3l:40px;
+
+//フォントファミリー 'Amatic SC', cursive;　
+// $font-fam: 'Amatic SC', cursive;　
+$font-family_corp: 'Amatic SC', cursive;
+
+
+//リセットcssを使っているので、margin:0とかはいらない
+html, body{
+    width: 100%;
+    font-size: $font-size_default;
+    line-height: 1.6;
+    //モバイル端末で使われる拡大アルゴリズム
+    text-size-adjust: 100%;
+  //文字の間隔
+    letter-spacing: 0.1em;
+    font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; // TODO:リファクタ必要（変数にする）
+}
+
+p, a{
+    //いけてるfont
+    -webkit-font-smoothing:antialiased;
+}
+
+a{
+    color: $font-color_default;
+    text-decoration: none;
+    transition: .3s;
+}
+
+a:hover{
+    color: $font-color-sub;
+    transition: .3s;
+}
+
+//img
+
+.header{
+    box-sizing: border-box;
+    width: 100%;
+    height: 80px;
+    color: $font-color_default;
+    display: flex;
+    // vertical-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 $space_xxl;
+    position: fixed;
+    z-index: 2;
+    .title{
+        font-size: $font-size-xxl;
+        font-family: $font-family_corp;
+        font-weight: bold;
+    }
+    //@mixin スマホの場合
+    @include mq(){
+        height: 60px;
+        width: 100vw;
+        padding-right: $space-l;
+        padding-left: $space-l;
+    }
+    .title{
+        font-size: $font-size-xxl;
+        font-family: $font-family_corp;
+        font-weight: bold;
+    }
+}
+
+
+
+//スマホ対応メニュー
+//   .nav-menu{
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     //ネガティブ
+//     right: -100px;
+//     background: rgba(255, 255, 255, .85);
+//     width: 100%;
+//     height: 100vh;
+//     padding-top:50px;
+//     transition: .5s;
+//  }
+
+
+
+//メニュー 　スマホ
+.nav-menu{
+    @include mq(){
+        //スマホのnav-manuはcontainerの@includeを考えてから設定するf
+        display: none;
+        // display: block;
+        position: absolute;
+        top: 0;
+        right: -100px;
+        background: rgba(255, 255, 255, .85);
+        width: 100%;
+        height: 100vh;
+        padding-top: 50px;
+        transition: .5s;
+
+        &.active{
+            transition: .5s;
+            transform: translateX(-100%);
+            z-index: 2;
+        }
+    }
+}
+
+
+.menu{
+    display: flex;
+    align-items: center;
+    font-size: $font-size-l;
+    font-family: $font-family_corp;
+    &-item{
+        margin-right: initial;
+    }
+    &-link{
+        //smoothing antialasdを外す
+        -webkit-font-smoothing:initial;
+        display: block;
+        padding: $space-m;
+        text-align: center;
+    }
+    @include mq(){
+        display: block;
+        font-size: $font-size-xxl;
+        &-item{
+            margin-right: initial;
+        }
+    }
+    //スマホ対応
+}
+
+//ハンバーガーメニュー
+.menu-humberger{
+    display: none;
+    @include mq(){
+        display: inline-block;
+    }
+    transition: all .4s;
+    box-sizing: border-box;
+    position: relative;
+    width: 40px;
+    height: 32px;
+    z-index: 3;
+    .humberger-bar{
+        //メニューバー
+        display: inline-block;
+        transition: all .4s;
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        width:100%;
+        //棒の高さ
+        height: 4px;
+        background: $font-color_default;
+        border-radius: 4px;
+
+        &:nth-of-type(1){
+            top: 0;
+        }
+        &:nth-of-type(2){
+            top: 14px;
+        }
+        &:nth-of-type(3){
+            bottom: 0;
+        }
+    }
+    &.active .humberger-bar{
+        &:nth-of-type(1){
+            transform: translateY(12px) rotate(-45deg);
+        }
+        &:nth-of-type(2){
+            opacity: 0;
+        }
+        &:nth-of-type(3){
+            transform: translateY(-15px) rotate(45deg);
+        }
+    }
+}
+
+/*========================================
+hero
+========================================*/
+.hero{
+    //パララックスデザイン
+    background-image:url('../images/hero.jpg');
+    background-attachment:fixed;
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-title{
+        font-size: 60px;
+        font-family: $font-family_corp;
+        color: #666666;
+    }
+    br{
+        display: none;
+        @include mq(){
+            display: block;
+        }
+    }
+}
+
+/*========================================
+container
+//重要！！！
+
+//各要素の親
+========================================*/
+.container{
+    //pc
+    width: $site-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 80px;
+    padding-bottom: 120px;
+    //スマホの場合、100%;
+    @include mq(){
+        width: 100%;
+    }
+    &-fluid{
+        width: 100%;
+    }
+    &-title{
+        font-family: $font-family_corp;
+        text-align: center;
+        font-size: $font-size-3l;
+        margin-bottom: $space-3l;
+
+        @include mq(){
+            width: 70%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 30px;
+        }
+    }
+    &-body{
+        @include mq(){
+            padding-left: $space-l;
+            padding-right: $space-l;
+        }
+    }
+    &-ornament{
+        .container-title{
+            span{ //TODO 
+                display: inline-block;
+                background: #fff;
+                padding: 0 10px;
+                position: relative;
+                z-index: 1;
+            }
+            &:before, &:after{
+            border-top: 1px dotted black;
+            content: "";
+            display: block;
+            position: relative;
+            z-index: 0;
+        }   
+        &:before {
+            top: 28px;
+        }
+        &:after{
+            top: -28px;
+        }
+      }
+    }
+    // &-bgGray{
+    //     background: $bg-color_gray;
+    // }
+}
+
+
+
+/*========================================
+news
+========================================*/
+.news{
+    width: 70%;
+    height: 60px;
+    //余分な分はスクロールできるように、
+    overflow-y: scroll;
+    margin: 0 auto;
+    padding: $space-l $space-xl;
+}
+
+
+
+
+/*========================================
+ユーティリティ
+
+//ここでは、独立しているクラスをかく事
+========================================*/
+.bgColor-common{
+    background: $bg-color_gray;
+    box-shadow: 0px 0px 8px 2px #ddd inset; 
+}
