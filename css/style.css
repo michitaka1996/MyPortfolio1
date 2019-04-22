@@ -36,23 +36,54 @@ a:hover {
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
     font-weight: bold; }
   .header .title span {
-    display: inline-block; }
+    display: inline-block;
+    color: transparent;
+    animation: blur 10s ease-out infinite; }
   .header .title span:nth-child(1) {
-    color: #3399FF; }
+    color: #3399FF;
+    animation-delay: 0.1s; }
   .header .title span:nth-child(2) {
-    color: #ddd; }
+    color: #ddd;
+    animation-delay: 0.2s; }
   .header .title span:nth-child(3) {
-    color: #FF3333; }
+    color: #FF3333;
+    animation-delay: 0.3s; }
   .header .title span:nth-child(4) {
-    color: #3399FF; }
+    color: #3399FF;
+    animation-delay: 0.4s; }
   .header .title span:nth-child(5) {
-    color: #ddd; }
+    color: #ddd;
+    animation-delay: 0.5s; }
   .header .title span:nth-child(6) {
-    color: #FF3333; }
+    color: #FF3333;
+    animation-delay: 0.6s; }
   .header .title span:nth-child(7) {
-    color: #3399FF; }
+    color: #3399FF;
+    animation-delay: 0.7s; }
   .header .title span:nth-child(8) {
-    color: #ddd; }
+    color: #ddd;
+    animation-delay: 0.8s; }
+
+@keyframes blur {
+  /*opacityとtext-shadow+animationでフェードインを表現する*/
+  0% {
+    text-shadow: 0 0 100px #fff;
+    opacity: 0; }
+  5% {
+    text-shadow: 0 0 90px #fff; }
+  15% {
+    opacity: 1; }
+  20% {
+    text-shadow: 0 0 0px #fff; }
+  80% {
+    text-shadow: 0 0 0px #fff; }
+  85% {
+    opacity: 1; }
+  95% {
+    text-shadow: 0 0 90px #fff; }
+  100% {
+    text-shadow: 0 0 100px #fff;
+    opacity: 0; } }
   @media screen and (max-width: 414px) {
     .header {
       height: 60px;

@@ -134,15 +134,52 @@ a:hover{
     }
     .title span{
         display: inline-block;
+        color: transparent;
+        animation: blur 10s ease-out infinite;
     }
-    .title span:nth-child(1){color:#3399FF; }
-    .title span:nth-child(2){color: #ddd;}
-    .title span:nth-child(3){color:#FF3333; }
-    .title span:nth-child(4){color:#3399FF; }
-    .title span:nth-child(5){color: #ddd;}
-    .title span:nth-child(6){color:#FF3333;}
-    .title span:nth-child(7){color:#3399FF;}
-    .title span:nth-child(8){color: #ddd;}
+    //トリコロールカラー
+    .title span:nth-child(1){color:#3399FF; animation-delay: 0.1s; }
+    .title span:nth-child(2){color: #ddd; animation-delay: 0.2s;}
+    .title span:nth-child(3){color:#FF3333; animation-delay: 0.3s; }
+    .title span:nth-child(4){color:#3399FF; animation-delay: 0.4s; }
+    .title span:nth-child(5){color: #ddd; animation-delay: 0.5s;}
+    .title span:nth-child(6){color:#FF3333; animation-delay: 0.6s;}
+    .title span:nth-child(7){color:#3399FF; animation-delay: 0.7s;}
+    .title span:nth-child(8){color: #ddd;animation-delay: 0.8s;}
+
+    @keyframes blur {/*opacityとtext-shadow+animationでフェードインを表現する*/
+    0%    {text-shadow:  0 0 100px #fff; opacity:0;}
+    5%    {text-shadow:  0 0 90px #fff;}
+    15%    {opacity: 1;}
+    20%    {text-shadow:  0 0 0px #fff;}
+    80%    {text-shadow:  0 0 0px #fff;}
+    85%    {opacity: 1;}
+    95%    {text-shadow:  0 0 90px #fff;}
+    100%  {text-shadow:  0 0 100px #fff; opacity:0;}
+    }
+    //1文字ずつ遅延させる
+    // span:nth-child(1) {/*一文字ずつ遅延させる*/
+    // animation-delay: 0.1s;
+    // }
+    // span:nth-child(2) {
+    // animation-delay: 0.2s;
+    // }
+    // span:nth-child(3) {
+    // animation-delay: 0.3s;
+    // }
+    // span:nth-child(4) {
+    // animation-delay: 0.4s;
+    // }
+    // span:nth-child(5) {
+    // animation-delay: 0.5s;
+    // }
+    // span:nth-child(6) {
+    // animation-delay: 0.6s;
+    // }
+    // span:nth-child(7) {
+    // animation-delay: 0.7s;
+    // }
+
     // .title span:nth-child(9){color:#FF3333;}
     //@mixin スマホの場合
     @include mq(){
