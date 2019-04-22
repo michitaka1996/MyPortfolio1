@@ -1,0 +1,559 @@
+@charset "UTF-8";
+html, body {
+  width: 100%;
+  color: #333;
+  font-size: 16px;
+  font-family: 'Quicksand', Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; }
+
+p, a {
+  -webkit-font-smoothing: antialiased; }
+
+p {
+  display: block;
+  line-height: 1.5; }
+
+a {
+  color: #333;
+  text-decoration: none; }
+
+img {
+  width: 100%;
+  vertical-align: bottom; }
+
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  background: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 3; }
+  .header__title {
+    font-size: 30px;
+    font-family: "Abril Fatface", cursive; }
+  @media screen and (max-width: 414px) {
+    .header {
+      height: 50px;
+      padding-right: 15px;
+      padding-left: 15px; } }
+
+@media screen and (max-width: 414px) {
+  .header__menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    transition: .5s; }
+    .header__menu.active {
+      transition: .5s;
+      transform: translateX(-100%);
+      z-index: 2; } }
+
+.header__trigger {
+  display: none;
+  transition: all .3s;
+  box-sizing: border-box;
+  position: relative;
+  width: 40px;
+  height: 32px;
+  z-index: 5; }
+  @media screen and (max-width: 414px) {
+    .header__trigger {
+      display: inline-block; } }
+  .header__trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px; }
+    .header__trigger span:nth-of-type(1) {
+      top: 0;
+      background: #00f; }
+    .header__trigger span:nth-of-type(2) {
+      top: 14px;
+      background: #ff0; }
+    .header__trigger span:nth-of-type(3) {
+      bottom: 0;
+      background: #f00; }
+  .header__trigger.active span:nth-of-type(1), .header__trigger.active span:nth-of-type(3) {
+    width: 20px; }
+  .header__trigger.active span:nth-of-type(1) {
+    -webkit-transform: translate(-4px, 8px) rotate(-45deg);
+    transform: translate(-4px, 8px) rotate(-45deg); }
+  .header__trigger.active span:nth-of-type(3) {
+    -webkit-transform: translate(-4px, -8px) rotate(45deg);
+    transform: translate(-4px, -8px) rotate(45deg); }
+
+.p-nav {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-family: "Abril Fatface", cursive; }
+  .p-nav__item {
+    margin-right: 20px;
+    transition: .5s;
+    transform: rotateX(0deg); }
+     .p-nav__item:hover {
+      transform: rotateX(360deg); } 
+  .p-nav__link {
+    -webkit-font-smoothing: initial;
+    color: #fff;
+    transition: .5s; }
+  .p-nav .isactive {
+    color: #f00; }
+  @media screen and (max-width: 414px) {
+    .p-nav {
+      display: block;
+      font-size: 30px; }
+      .p-nav__item {
+        margin-right: initial;
+        transition: none;
+        transform: none; }
+        .p-nav__item:hover {
+          transform: none;
+          animation: none; }
+      .p-nav__link {
+        -webkit-font-smoothing: initial;
+        display: block;
+        padding: 15px;
+        text-align: center; } }
+
+.p-top {
+  background: #333;
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+  width: 100%; }
+  @media screen and (max-width: 414px) {
+    .p-top {
+      height: 100vh; } }
+  .p-top__item {
+    position: absolute; }
+    .p-top__item--1 {
+      height: 45%; }
+    .p-top__item--w1 {
+      background: #fff;
+      width: 50%; }
+    .p-top__item--b {
+      background: #00f;
+      width: calc(50% - 50px);
+      right: 0; }
+    .p-top__item--2 {
+      height: 30%;
+      top: calc(45% + 50px); }
+    .p-top__item--r {
+      background: #f00;
+      width: 70%;
+      margin-right: 50px; }
+    .p-top__item--w2 {
+      background: #fff;
+      width: calc(30% - 50px);
+      right: 0; }
+    .p-top__item--3 {
+      height: 6%;
+      bottom: 6%; }
+    .p-top__item--y {
+      background: #ff0;
+      width: 100%; }
+
+.container {
+  width: 980px;
+  background: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
+  padding-bottom: 120px; }
+  @media screen and (max-width: 414px) {
+    .container {
+      width: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+      box-sizing: border-box; } }
+  .container-r {
+    margin-right: 0;
+    border-left: 50px #333 solid; }
+    @media screen and (max-width: 414px) {
+      .container-r {
+        border-left: none; } }
+    @media screen and (max-width: 768px) {
+      .container-r {
+        width: 100%;
+        border: none; } }
+    .container-r_none {
+      padding-bottom: 40px; }
+  .container-l {
+    margin-left: 0;
+    border-right: 50px #333 solid; }
+    @media screen and (max-width: 414px) {
+      .container-l {
+        border-right: none; } }
+    @media screen and (max-width: 768px) {
+      .container-l {
+        width: 100%;
+        border: none; } }
+  .container .c-title {
+    font-family: "Abril Fatface", cursive;
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 40px; }
+
+/* 基本のスタイル */
+.delighter.right {
+  transition: all 1s ease-out;
+  transform: translateX(50%);
+  opacity: 0; }
+
+.delighter.left {
+  transition: all 1s ease-out;
+  transform: translateX(-50%);
+  opacity: 0; }
+
+.delighter.center {
+  transition: all 1s ease-out;
+  transform: translateY(-50%);
+  opacity: 0; }
+
+/* スタート時のスタイル */
+.delighter.left.started {
+  transform: none;
+  opacity: 1; }
+
+.delighter.right.started {
+  opacity: 1;
+  transform: none; }
+
+.delighter.center.started {
+  opacity: 1;
+  transform: none; }
+
+.c-anime-one {
+  animation: slideAnime1 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+
+@keyframes slideAnime1 {
+  0% {
+    opacity: 0;
+    transform: translateX(50px); }
+  50% {
+    opacity: 0;
+    transform: translateX(25px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0px); } }
+
+.c-anime-two {
+  animation: slideAnime2 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+
+@keyframes slideAnime2 {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); }
+  50% {
+    opacity: 0;
+    transform: translateX(-25px); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+.c-anime-thr {
+  animation: slideAnime3 2s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+
+@keyframes slideAnime3 {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px); }
+  50% {
+    opacity: 0;
+    transform: translateY(-25px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+.p-about {
+  width: 100%; }
+  .p-about__img {
+    text-align: center;
+    width: 100%; }
+  .p-about img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    margin: 20px auto;
+    background-position: center;
+    border: 10px #333 solid; }
+  .p-about__txt {
+    box-sizing: border-box;
+    width: 70%;
+    margin: 0 auto; }
+    @media screen and (max-width: 414px) {
+      .p-about__txt {
+        width: 100%; } }
+
+.c-panel {
+  box-sizing: border-box;
+  padding: 0 20px 0 20px;
+  width: 100%; }
+  @media screen and (max-width: 414px) {
+    .c-panel {
+      padding: 0; } }
+  .c-panel__flex {
+    display: flex;
+    justify-content: space-between; }
+    @media screen and (max-width: 414px) {
+      .c-panel__flex {
+        flex-wrap: wrap; } }
+  .c-panel__card {
+    border: 5px #333 solid;
+    box-sizing: border-box;
+    width: calc(33.3% - 15px);
+    margin-right: 15px; }
+    .c-panel__card:last-child {
+      margin-right: 0; }
+    @media screen and (max-width: 414px) {
+      .c-panel__card {
+        width: 100%;
+        margin: 0 auto 15px auto; } }
+  .c-panel__body {
+    text-align: center; }
+  .c-panel__head, .c-panel__foot {
+    padding: 10px; }
+  .c-panel__head {
+    text-align: center;
+    font-family: "Abril Fatface", cursive;
+    font-size: 24px; }
+  .c-panel__foot {
+    word-break: break-all; }
+
+.c-border {
+  background: #333;
+  width: 100%;
+  height: 50px; }
+
+.form {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto; }
+  @media screen and (max-width: 414px) {
+    .form {
+      width: 100%; } }
+
+.input {
+  display: block;
+  width: 100%;
+  height: 60px;
+  border: none;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: "Abril Fatface", cursive;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  outline: none; }
+  .input_name {
+    background: #f7dcd9; }
+    .input_name:focus {
+      border: 3px solid #ff000073; }
+  .input_email {
+    background: #ffff0080; }
+    .input_email:focus {
+      border: 3px solid #ffe500; }
+  .input_textarea {
+    height: 200px;
+    background: #d9e0f7; }
+    .input_textarea:focus {
+      border: 3px solid #0000ff54; }
+
+::placeholder {
+  color: #ccc; }
+
+.c-btn {
+  display: block;
+  width: 50%;
+  height: 50px;
+  font-size: 16px;
+  font-family: "Abril Fatface", cursive;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  background: #333;
+  color: #fff; }
+
+.fa-circle {
+  color: #ff0; }
+  .fa-circle_r {
+    color: #f00; }
+  .fa-circle_b {
+    color: #00f; }
+
+.panel__item {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  border: 5px #333 solid;
+  box-sizing: border-box;
+  padding: 10px 20px; }
+  .panel__item--etc {
+    padding: 30px 10px; }
+
+.footer {
+  color: #fff;
+  background: #333;
+  font-family: "Abril Fatface", cursive;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  text-align: center; }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 30%;
+  z-index: 2;
+  background: #fff; }
+
+.js-modal-cover {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none; }
+
+.c-mask {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  color: #fff; }
+  .c-mask__cap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-transition: .3s;
+    transition: .3s;
+    opacity: 0;
+    text-align: center;
+    box-sizing: border-box; }
+  .c-mask__title {
+    padding: 20px;
+    font-size: 25px;
+    font-family: "Abril Fatface", cursive; }
+  .c-mask__txt {
+    padding: 0 20px;
+    word-break: break-all; }
+  .c-mask__link {
+    color: #fff; }
+
+.mask-cap {
+  position: absolute;
+  top: 10%;
+  widows: 100%; }
+
+.c-mask:hover .c-mask__cap {
+  opacity: 1; }
+
+.msg {
+  text-align: center;
+  font-size: 18px; }
+
+.err_msg {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 5px; }
+
+.err .input {
+  background: #eee;
+  border: 3px #333 solid; }
+
+.u-container {
+  width: 100%;
+  display: flex;
+  border-bottom: 50px #333 solid;
+  box-sizing: border-box; }
+  @media screen and (max-width: 414px) {
+    .u-container {
+      display: block; } }
+  .u-container__img {
+    width: 50%;
+    border-right: 25px #333 solid;
+    overflow: hidden; }
+    .u-container__img:last-child {
+      border-left: 25px #333 solid;
+      border-right: 0; }
+      @media screen and (max-width: 414px) {
+        .u-container__img:last-child {
+          border: none; } }
+    @media screen and (max-width: 414px) {
+      .u-container__img {
+        width: 100%;
+        border: none; } }
+  .u-container img {
+    height: 300px;
+    object-fit: contain;
+    transition: .1s; }
+  .u-container__hover:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .5s; }
+
+.u-container__sec {
+  width: 100%;
+  display: flex;
+  border-bottom: 50px #333 solid;
+  box-sizing: border-box; }
+  @media screen and (max-width: 414px) {
+    .u-container__sec {
+      display: block;
+      border: none; } }
+  .u-container__sec--img {
+    width: 50%;
+    border-right: 50px #333 solid;
+    overflow: hidden; }
+    .u-container__sec--img:last-child {
+      border-right: 0; }
+    @media screen and (max-width: 414px) {
+      .u-container__sec--img {
+        border: none;
+        width: 100%;
+        border-bottom: 50px #333 solid; }
+        .u-container__sec--img:nth-child(2) {
+          background: #f00; } }
+  .u-container__sec img {
+    height: 400px;
+    object-fit: contain;
+    transition: .3s; }
+
+.bgcolor__b {
+  background: #00f; }
+
+.bgcolor__y {
+  background: #ff0; }
+
+.bgcolor__r {
+  background: #f00; }
+
+.bgcolor__w {
+  background: #fff; }
+
+.imgcolor {
+  background: #00f; }
