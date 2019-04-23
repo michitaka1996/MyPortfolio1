@@ -51,6 +51,7 @@ $breakpoints:(
 //メインカラー　サブカラー
 $font-color_default: #777;
 $font-color_sub: #e37b89; // TODO:リファクタ必要
+$font-color-white: white;
 $bg-color_gray:  #f8f7fc;
 
 //ピクセル
@@ -117,7 +118,7 @@ a:hover{
 .header{
     box-sizing: border-box;
     width: 100%;
-    height: 80px;
+    height: 60px;
     background: #777;
     color: $font-color_default;
     display: flex;
@@ -183,7 +184,7 @@ a:hover{
     // .title span:nth-child(9){color:#FF3333;}
     //@mixin スマホの場合
     @include mq(){
-        height: 60px;
+        height: 40px;
         width: 100vw;
         padding-right: $space-l;
         padding-left: $space-l;
@@ -236,13 +237,13 @@ a:hover{
     display: flex;
     align-items: center;
     font-size: $font-size-l;
-    font-family: $font-family_corp;
     &-item{
         margin-right: initial;
     }
     &-link{
         //smoothing antialasdを外す
         -webkit-font-smoothing:initial;
+        font-family: $font-family_retrip;
         display: block;
         color: #fff;
         padding: $space-m;
@@ -312,12 +313,12 @@ hero
 main{
     // borderを際立たせたいので、mainタグにabsoluteを入れる
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: 0;
     width: 100%;
     @include mq(){
     position: absolute;
-    top: 60px;
+    top: 38px;
     left: 0;
     width: 100%; 
     }
@@ -325,20 +326,57 @@ main{
 .top-animation{
     // あとで消す
     width: 100%;
-    height: 500px;
+    min-height: 500px;
     box-sizing: border-box;
-    
-    background:#e37b89;
     top:80px;
     left: 0;
-    border: 20px solid #444;
+    border: 10px solid #444;
     margin-bottom: 30px;
-    .top-color{
-        width: 100%;
-        height: 100%;
-       
+    &-container{
+        min-height: 86px;
+        &-thin{
+            min-height: 50px;
+        }
     }
-
+    &-label{
+        display: block;
+    }
+    &-check{
+        display: none;
+    }
+    &-color{
+        width: 100%;
+        position: relative;
+        @include mq(){
+            position: relative;
+        }
+    }
+    &-title{
+        font-family:$font-family_retrip;
+        color: $font-color-white; 
+        font-size: $font-size-xl;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        &:hover{
+            cursor: pointer;
+        }
+        @include mq(){
+            position: absolute;
+            top: 20px;
+            left: 165px;
+        }
+    }
+    &-blue{
+        background: blue;
+        
+    }
+    &-white{
+        background: white;
+    }
+    &-red{
+        background: red;
+    }
     
 }
 
@@ -435,4 +473,42 @@ news
 .bgColor-common{
     background: $bg-color_gray;
     box-shadow: 0px 0px 8px 2px #ddd inset; 
+}
+
+//icon
+.fa-angle-down{
+   font-family: "FontAwesome";
+   position: absolute;
+   top: 50%;
+   left: 50.65%;
+   @include mq(){
+      position: relative; 
+      left: 49%;
+      top: 40px;
+   }
+   &:hover{
+       cursor: pointer;
+   }
+}
+
+// 切り取る
+.acd-label{
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.acd-content{
+    /* border: 1px solid #333; */
+    height: 0;
+    opacity: 0;
+    background: gray;
+    padding: 0 10px;
+    transition: 0.8s;
+    visibility: hidden;
+}
+.acd-check:checked + .acd-label + .acd-content{
+    height: 400px;
+    opacity: 1;
+    visibility: visible;
 }
