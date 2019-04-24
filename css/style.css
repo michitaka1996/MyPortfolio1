@@ -200,6 +200,75 @@ main {
   .top-animation-red {
     background: #FF3333; }
 
+.acd-check {
+  display: none; }
+
+/* laeblのクラス */
+.acd-label {
+  background: #333;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 1px;
+  padding: 20px;
+  box-shadow: 0px 9px 3px -3px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0px 9px 3px -3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 9px 3px -3px rgba(0, 0, 0, 0.6); }
+  .acd-label-blue {
+    background: #3399FF; }
+  .acd-label-red {
+    background: #FF3333; }
+
+/* アコーディオンパネル */
+.acd-content {
+  border: 1px solid #333;
+  height: 0;
+  width: 100%;
+  opacity: 0;
+  padding: 0 10px;
+  transition: 0.1s;
+  /* 文書のレイアウトを崩さず不可視に */
+  visibility: hidden;
+  box-sizing: border-box;
+  position: relative; }
+  @media screen and (max-width: 414px) {
+    .acd-content {
+      box-sizing: border-box; } }
+  .acd-content-blue {
+    background: #3399FF; }
+  .acd-content-red {
+    background: #FF3333; }
+  .acd-content-prof {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 27px;
+    left: 80px; }
+    @media screen and (max-width: 414px) {
+      .acd-content-prof {
+        position: absolute;
+        top: 25px;
+        left: 100px; } }
+  .acd-content-detail {
+    width: 60%;
+    height: 160px;
+    color: white;
+    position: absolute;
+    top: 25px;
+    left: 250px; }
+
+.acd-check:checked + .acd-label + .acd-content {
+  height: 200px;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 1;
+  padding: 10px;
+  transition: .7s;
+  /* 文書のレイアウトを崩さず可視に */
+  visibility: visible; }
+
 /*========================================
 container
 //重要！！！
@@ -279,50 +348,3 @@ news
       top: 25px; } }
   .fa-angle-down:hover {
     cursor: pointer; }
-
-.acd-check {
-  display: none; }
-
-/* laeblのクラス */
-.acd-label {
-  background: #333;
-  color: #fff;
-  display: block;
-  margin-bottom: 1px;
-  padding: 20px;
-  box-shadow: 0px 9px 3px -3px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 0px 9px 3px -3px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0px 9px 3px -3px rgba(0, 0, 0, 0.6); }
-  .acd-label-blue {
-    background: #3399FF; }
-  .acd-label-red {
-    background: #FF3333; }
-
-/* アコーディオンパネル */
-.acd-content {
-  border: 1px solid #333;
-  height: 0;
-  width: 100%;
-  opacity: 0;
-  padding: 0 10px;
-  transition: 1s;
-  /* 文書のレイアウトを崩さず不可視に */
-  visibility: hidden;
-  box-sizing: border-box; }
-  @media screen and (max-width: 414px) {
-    .acd-content {
-      box-sizing: border-box; } }
-  .acd-content-blue {
-    background: #3399FF; }
-  .acd-content-red {
-    background: #FF3333; }
-
-.acd-check:checked + .acd-label + .acd-content {
-  min-height: 100px;
-  width: 100%;
-  box-sizing: border-box;
-  opacity: 1;
-  padding: 10px;
-  transition: .8s;
-  /* 文書のレイアウトを崩さず可視に */
-  visibility: visible; }

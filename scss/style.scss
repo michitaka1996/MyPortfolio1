@@ -323,6 +323,7 @@ main{
     width: 100%; 
     }
 }
+// トップのアニメーション
 .top-animation{
     // あとで消す
     width: 100%;
@@ -372,6 +373,87 @@ main{
         background:#FF3333;
     }
     
+}
+//アコーディオンパネル
+.acd-check{
+    display: none;
+}
+/* laeblのクラス */
+.acd-label{
+    background: #333;
+    color: #fff;
+    font-size: $font-size-xl;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 1px;
+    padding: 20px;
+    box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    &-blue{
+        background: #3399FF;
+    }
+    &-red{
+        background: #FF3333;
+    }
+}
+/* アコーディオンパネル */
+.acd-content{
+    border: 1px solid #333;
+    height: 0;
+    width: 100%;
+    opacity: 0;
+    padding: 0 10px;
+    transition: 0.1s;
+     /* 文書のレイアウトを崩さず不可視に */
+    visibility: hidden;
+    box-sizing: border-box;
+    position: relative;
+    @include mq(){
+        box-sizing: border-box;
+    }
+    &-blue{
+        background: #3399FF;
+    }
+    &-red{
+        background: #FF3333;
+    }
+    &-prof{
+        // プロフ画像
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 27px;
+        left: 80px;
+        @include mq(){
+         position: absolute;
+         top: 25px;
+         left: 100px;
+        }
+    }
+    &-detail{
+        // border: 1px solid;
+        width: 60%;
+        height: 160px;
+        color: $font-color-white;
+        position: absolute;
+        top: 25px;
+        left: 250px;
+        @include mq(){
+            
+        }
+    }
+}
+  .acd-check:checked + .acd-label + .acd-content{
+    height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+    opacity: 1;
+    padding: 10px;
+    transition: .7s;
+    /* 文書のレイアウトを崩さず可視に */
+    visibility: visible;
 }
 
 /*========================================
@@ -485,55 +567,3 @@ news
    }
 }
 
-//アコーディオンパネル
-.acd-check{
-    display: none;
-}
-/* laeblのクラス */
-.acd-label{
-    background: #333;
-    color: #fff;
-    display: block;
-    margin-bottom: 1px;
-    padding: 20px;
-    box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
-    -webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
-    -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
-    &-blue{
-        background: #3399FF;
-    }
-    &-red{
-        background: #FF3333;
-    }
-}
-/* アコーディオンパネル */
-.acd-content{
-    border: 1px solid #333;
-    height: 0;
-    width: 100%;
-    opacity: 0;
-    padding: 0 10px;
-    transition: 1s;
-     /* 文書のレイアウトを崩さず不可視に */
-    visibility: hidden;
-    box-sizing: border-box;
-    @include mq(){
-        box-sizing: border-box;
-    }
-    &-blue{
-        background: #3399FF;
-    }
-    &-red{
-        background: #FF3333;
-    }
-}
-.acd-check:checked + .acd-label + .acd-content{
-    min-height: 100px;
-    width: 100%;
-    box-sizing: border-box;
-    opacity: 1;
-    padding: 10px;
-    transition: .8s;
-    /* 文書のレイアウトを崩さず可視に */
-    visibility: visible;
-}
