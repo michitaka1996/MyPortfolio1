@@ -331,18 +331,12 @@ main{
     top:80px;
     left: 0;
     border: 10px solid #444;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
     &-container{
         min-height: 86px;
         &-thin{
             min-height: 50px;
         }
-    }
-    &-label{
-        display: block;
-    }
-    &-check{
-        display: none;
     }
     &-color{
         width: 100%;
@@ -351,31 +345,31 @@ main{
             position: relative;
         }
     }
-    &-title{
-        font-family:$font-family_retrip;
-        color: $font-color-white; 
-        font-size: $font-size-xl;
-        position: absolute;
-        top: 30%;
-        left: 50%;
-        &:hover{
-            cursor: pointer;
-        }
-        @include mq(){
-            position: absolute;
-            top: 20px;
-            left: 165px;
-        }
-    }
+    // &-title{
+    //     font-family:$font-family_retrip;
+    //     color: $font-color-white; 
+    //     font-size: $font-size-xl;
+    //     position: absolute;
+    //     top: 30%;
+    //     left: 50%;
+    //     &:hover{
+    //         cursor: pointer;
+    //     }
+    //     @include mq(){
+    //         position: absolute;
+    //         top: 20px;
+    //         left: 165px;
+    //     }
+    // }
     &-blue{
-        background: blue;
+        background: #3399FF;
         
     }
     &-white{
         background: white;
     }
     &-red{
-        background: red;
+        background:#FF3333;
     }
     
 }
@@ -479,36 +473,67 @@ news
 .fa-angle-down{
    font-family: "FontAwesome";
    position: absolute;
-   top: 50%;
+//    top: 50%;
    left: 50.65%;
    @include mq(){
       position: relative; 
       left: 49%;
-      top: 40px;
+      top: 25px;
    }
    &:hover{
        cursor: pointer;
    }
 }
 
-// 切り取る
-.acd-label{
-    width: 100%;
-    height: 100%;
-    padding: 40px;
-    box-sizing: border-box;
+//アコーディオンパネル
+.acd-check{
+    display: none;
 }
+/* laeblのクラス */
+.acd-label{
+    background: #333;
+    color: #fff;
+    display: block;
+    margin-bottom: 1px;
+    padding: 20px;
+    box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+    &-blue{
+        background: #3399FF;
+    }
+    &-red{
+        background: #FF3333;
+    }
+}
+/* アコーディオンパネル */
 .acd-content{
-    /* border: 1px solid #333; */
+    border: 1px solid #333;
     height: 0;
+    width: 100%;
     opacity: 0;
-    background: gray;
     padding: 0 10px;
-    transition: 0.8s;
+    transition: 1s;
+     /* 文書のレイアウトを崩さず不可視に */
     visibility: hidden;
+    box-sizing: border-box;
+    @include mq(){
+        box-sizing: border-box;
+    }
+    &-blue{
+        background: #3399FF;
+    }
+    &-red{
+        background: #FF3333;
+    }
 }
 .acd-check:checked + .acd-label + .acd-content{
-    height: 400px;
+    min-height: 100px;
+    width: 100%;
+    box-sizing: border-box;
     opacity: 1;
+    padding: 10px;
+    transition: .8s;
+    /* 文書のレイアウトを崩さず可視に */
     visibility: visible;
 }
