@@ -346,22 +346,7 @@ main{
             position: relative;
         }
     }
-    // &-title{
-    //     font-family:$font-family_retrip;
-    //     color: $font-color-white; 
-    //     font-size: $font-size-xl;
-    //     position: absolute;
-    //     top: 30%;
-    //     left: 50%;
-    //     &:hover{
-    //         cursor: pointer;
-    //     }
-    //     @include mq(){
-    //         position: absolute;
-    //         top: 20px;
-    //         left: 165px;
-    //     }
-    // }
+    
     &-blue{
         background: #3399FF;
         
@@ -371,6 +356,19 @@ main{
     }
     &-red{
         background:#FF3333;
+    }
+    &-status{
+        position: relative;
+        width: 90%;
+        min-height: 200px;
+
+        margin: 0 auto 0 auto;
+        &-detail{
+            position: absolute;
+            top: 110px;
+            word-break: break-word;
+            text-align: center;
+        }
     }
     
 }
@@ -427,30 +425,30 @@ main{
             margin: 0 auto;
             width: 50%;
             //消す
-            height: 230px;
+            height: 400px;
             @include mq(){
                 width: 100%;
-                height: 100%;
-            }
-            &-wrap{
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                position: relative;
+                height: 310px;
             }
             &-img{
-                width: 100%;
+                width: 621px;
                 height: 100%;
                 overflow: hidden;
                 position: relative;
+                @include mq(){
+                    // width: 333px;
+                }
                 .work-img{
                     // 消す
                    list-style: none;
-                    width: 100%;
+                    width: 621px;
                     height: 100%;
                     overflow: hidden;
                     background: #777;
                     float: left;
+                    @include mq(){
+                        // width: 333px;
+                    }
                 }
                 .work-img2{
                     background: orange;
@@ -459,11 +457,7 @@ main{
                     }
                 }
                 .work-img1{
-                    @include mq(){
-                        width: 100%;
-                        height: 100%;
-                        background: #777;
-                    }
+                    background: #777;
                 }
                 .work-img3{
                     background: greenyellow;
@@ -480,8 +474,8 @@ main{
         width: 150px;
         height: 150px;
         position: absolute;
-        top: 27px;
-        left: 160px;
+        top: 40px;
+        left: 45%;
         @include mq(){
          position: absolute;
          top: 25px;
@@ -491,24 +485,27 @@ main{
     &-detail{
         // border: 1px solid;
         // width: 100%;
-        height: 160px;
-        word-break: break-word;
+        min-height: 100px;
         color: $font-color-white;
+        position: absolute;
+        top: 85%;
+        word-break: break-word;
+        text-align: center;
         @include mq(){
             position: absolute;
-            top: 166px;
-            left: 0;
+            top: 180px;
+            left: 10px;
             padding: 10px;
             box-sizing: border-box;
         }
-        position: absolute;
-        top: 25px;
-        left: 350px;
     }
 }
 //アコーディオンパネル
   .acd-check:checked + .acd-label + .acd-content{
     min-height: 250px;
+    height: auto !important;
+    height: 250px;
+    overflow-y: scroll;
     @include mq(){
         min-height: 200px;
         overflow-y: scroll;
@@ -637,13 +634,31 @@ news
 }
 .fa-angle-left{
     position: absolute;
-    top: 40%;
-    left: 0;
+    top: 45%;
     color: white;
+    z-index: 1;
 }
 .fa-angle-right{
     position: absolute;
-    top: 40%;
-    right: 0;
+    top: 45%;
+    left: 73.2%;
     color: white;
+    z-index: 1;
+    @include mq(){
+        position: absolute;
+        left: 93%;
+    }
+}
+.fa-laptop{
+    position: absolute;
+    top: 0;
+    left: 48%;
+    list-style: none;
+    color: white;
+    font-family: "FontAwesome";
+    @include mq(){
+        position: absolute;
+        top: 0;
+        left: 110px;
+    }
 }

@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="js/woocommerce-FlexSlider-690832b/flexslider.css" type="text/css"> -->
     <title>レスポンシブデザインページ</title>
 </head>
 <body>
@@ -42,22 +43,20 @@
         <section class="top-animation">
             <div class="top-animation-container top-animation-blue">
                 <input class="acd-check" id="acd-check1" type="checkbox">
-                <label for="acd-check1" class="acd-label acd-label-blue">
+                <label for="acd-check1" class="acd-label acd-label-blue js-label">
                     WORK:<br>
                     <i class="fas fa-angle-down"></i>
                 </label>
                 <div class="acd-content acd-content-blue">
-                    <div class="acd-content-container acd-content-container-slider">
-                        <div class="acd-content-container-slider-wrap">
+                    <div class="acd-content-container acd-content-container-slider js-slider-container">
+                          <i class="fa fa-angle-left fa-3x slider__nav slider__prev js-slide-prev" aria-hidden="true"></i>
+                          <i class="fa fa-angle-right fa-3x slider__nav slider__next js-slide-next" aria-hidden="true"></i>
                           <ul class="acd-content-container-slider-img js-slider">
-                            <i class="fa fa-angle-left fa-3x slider__nav slider__prev js-slide-prev" aria-hidden="true"></i>
-                            <i class="fa fa-angle-right fa-3x slider__nav slider__next js-slide-next" aria-hidden="true"></i>
                             <li class="work-img js-img work-img1" alt="">
                             <li class="work-img js-img work-img2" alt="">
                             <li class="work-img js-img work-img3" alt="">
                             <li class="work-img js-img work-img4" alt="">
                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -78,8 +77,12 @@
                     <div class="acd-content-container">
                         <img class="acd-content-prof" src="images/myprof.jpg">
                         <div class="acd-content-detail">
-                        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                           aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                        <p>こんにちは、2019年1月からwebの勉強をはじめ、
+                            web業界への就職を希望している井上道隆です。
+                            javscriptの自由度の高さ、またデザインへの関心から、フロントエンドエンジニアを志望しています
+                            見る人が使いやすいように、また新たな発見を与えられるような製作者になりたいです。
+                            <!-- このポートフォリオはレスポンシブデザイン、アニメーション、jqueryのアウトプットとして制作しました。
+                            (2019年4月26日) -->
                         </p>
                         </div>
                     </div>
@@ -99,7 +102,23 @@
                     <i class="fas fa-angle-down"></i>
                 </label>
                 <div class="acd-content acd-content-blue">
-                    <p>hello.world2!</p>
+                   <div class="top-animation-container">
+                    <div class="top-animation-status">
+                        <i class="fas fa-5x fa-laptop"></i>
+                        <div class="top-animation-status-detail">
+                          <p>
+                             <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+                             HTML/CSS/Bootstrap/javascript/PHP/MySQL/vue.jsを学んでいます。
+                             フロントで画面に動きをつけたり、DBへのCRUD機能で情報の実装しています。
+                             日々アウトプットとインプットを積極的に行っています。
+                             中途半端に投げ出さず、泥臭くやりきる力があります。
+                          </p>
+                        </div>
+                    </div>
+                   </div> 
                 </div>
             </div>
 
@@ -188,5 +207,7 @@
 
    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
    <script src="./js/app.js"></script>
+   <!-- <script src="js/woocommerce-FlexSlider-690832b/jquery.js"></script> -->
+   <!-- <script src="js/woocommerce-FlexSlider-690832b/jquery.flexslider.js"></script> -->
 </body>
 </html>
