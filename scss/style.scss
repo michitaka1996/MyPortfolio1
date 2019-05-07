@@ -1,20 +1,3 @@
-//コンポーネントごとにcssをまとめてかけるのがsassの特徴
-
-
-
-
-
-
-
-
-
-
-////////
-//@mixin
-//あとで@includeで継承する
-//まず、スマホやタブレットでは、widthを規定しているので各ブレークポイントを設定している
-
-////////
 
 //ブレークポイント、
 $breakpoints:(
@@ -25,19 +8,8 @@ $breakpoints:(
 ) !default;
 
 
-//デフォルトをスマホ対応にする
-//関数の書き方と変わらない
-//map-get()の第１引数には変数名、第２引数にマップ型のキーを渡すと、マップ型の値が返ってくる
 @mixin mq($breakpoint: sm){
-    //当て込みたいスタイル
-    //メディアクエリ
-    //map-getとはさっきのマップ型変数
     @media #{map-get($breakpoints, $breakpoint)} {
-        //↑はこんな感じになる
-        //screen and (max-width: 414px){
-        //@contentとすることで、実際に呼び出した際に
-        //書いたコードがこの中に入ってくる
-        //つまり@include mq()に渡している
         @content; 
     } 
 }
@@ -78,14 +50,11 @@ $space-xl:20px;
 $space-xxl:30px;
 $space-3l:40px;
 
-//フォントファミリー 'Amatic SC', cursive;　
-// $font-fam: 'Amatic SC', cursive;　
+
 $font-family_corp: 'Amatic SC', cursive;
 $font-family_retrip: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
 
 
-
-//リセットcssを使っているので、margin:0とかはいらない
 html, body{
     width: 100%;
     font-size: $font-size_default;
@@ -98,7 +67,7 @@ html, body{
 }
 
 p, a{
-    //いけてるfont
+
     -webkit-font-smoothing:antialiased;
 }
 
@@ -113,7 +82,6 @@ a:hover{
     transition: .3s;
 }
 
-//img
 
 .header{
     box-sizing: border-box;
@@ -158,31 +126,7 @@ a:hover{
     95%    {text-shadow:  0 0 90px #fff;}
     100%  {text-shadow:  0 0 100px #fff; opacity:0;}
     }
-    //1文字ずつ遅延させる
-    // span:nth-child(1) {/*一文字ずつ遅延させる*/
-    // animation-delay: 0.1s;
-    // }
-    // span:nth-child(2) {
-    // animation-delay: 0.2s;
-    // }
-    // span:nth-child(3) {
-    // animation-delay: 0.3s;
-    // }
-    // span:nth-child(4) {
-    // animation-delay: 0.4s;
-    // }
-    // span:nth-child(5) {
-    // animation-delay: 0.5s;
-    // }
-    // span:nth-child(6) {
-    // animation-delay: 0.6s;
-    // }
-    // span:nth-child(7) {
-    // animation-delay: 0.7s;
-    // }
 
-    // .title span:nth-child(9){color:#FF3333;}
-    //@mixin スマホの場合
     @include mq(){
         height: 40px;
         width: 100vw;
@@ -193,28 +137,12 @@ a:hover{
 
 
 
-//スマホ対応メニュー
-//   .nav-menu{
-//     display: block;
-//     position: absolute;
-//     top: 0;
-//     //ネガティブ
-//     right: -100px;
-//     background: rgba(255, 255, 255, .85);
-//     width: 100%;
-//     height: 100vh;
-//     padding-top:50px;
-//     transition: .5s;
-//  }
-
-
 
 //メニュー 　スマホ
 .nav-menu{
     @include mq(){
         //スマホのnav-manuはcontainerの@includeを考えてから設定するf
         display: none;
-        // display: block;
         position: absolute;
         top: 0;
         right: -100px;
@@ -241,7 +169,6 @@ a:hover{
         margin-right: initial;
     }
     &-link{
-        //smoothing antialasdを外す
         -webkit-font-smoothing:initial;
         font-family: $font-family_retrip;
         display: block;
@@ -256,7 +183,6 @@ a:hover{
             margin-right: initial;
         }
     }
-    //スマホ対応
 }
 
 //ハンバーガーメニュー
@@ -272,14 +198,12 @@ a:hover{
     height: 32px;
     z-index: 3;
     .humberger-bar{
-        //メニューバー
         display: inline-block;
         transition: all .4s;
         box-sizing: border-box;
         position: absolute;
         left: 0;
         width:100%;
-        //棒の高さ
         height: 4px;
         background: #fff; ;
         border-radius: 4px;
@@ -311,7 +235,6 @@ a:hover{
 hero
 ========================================*/
 main{
-    // borderを際立たせたいので、mainタグにabsoluteを入れる
     position: absolute;
     top: 60px;
     left: 0;
@@ -332,7 +255,6 @@ main{
     top:80px;
     left: 0;
     border: 10px solid #444;
-    // margin-bottom: 30px;
     &-container{
         min-height: 86px;
         &-thin{
@@ -431,8 +353,8 @@ main{
                 height: 310px;
             }
             &-img{
-                width: 621px;
-                height: 100%;
+                width: 647px;
+                height: 400px;
                 overflow: hidden;
                 position: relative;
                 @include mq(){
@@ -440,32 +362,26 @@ main{
                 }
                 .work-img{
                     // 消す
-                   list-style: none;
-                    width: 621px;
-                    height: 100%;
+                    list-style: none;
+                    width: 647px;
+                    height: 400px;
                     overflow: hidden;
                     background: #777;
                     float: left;
                     @include mq(){
-                        // width: 333px;
+                        width: 333px;
+                        height: 331px;
                     }
-                }
-                .work-img2{
-                    background: orange;
-                    @include mq(){
-                        display: none;
-                    }
-                }
-                .work-img1{
-                    background: #777;
-                }
-                .work-img3{
-                    background: greenyellow;
-                }
-                .work-img4{
-                    background: blueviolet;
                 }
             }
+        }
+    }
+    .mywork{
+        width: 100%;
+        height: 100%;
+        @include mq(){
+            width: 100%;
+            height: 100%;
         }
     }
     &-prof{
@@ -475,7 +391,7 @@ main{
         height: 150px;
         position: absolute;
         top: 40px;
-        left: 45%;
+        left: 45.5%;
         @include mq(){
          position: absolute;
          top: 25px;
@@ -521,9 +437,6 @@ main{
 
 /*========================================
 container
-//重要！！！
-
-//各要素の親
 ========================================*/
 .container{
     //pc
@@ -606,8 +519,6 @@ news
 
 /*========================================
 ユーティリティ
-
-//ここでは、独立しているクラスをかく事
 ========================================*/
 .bgColor-common{
     background: $bg-color_gray;

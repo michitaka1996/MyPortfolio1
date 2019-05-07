@@ -85,13 +85,4 @@ $(function () {
     slider.init();
     
 
-    // flexslider
-    // $(window).on(function () {
-    //     $('js-slider-container').flexslider(); 
-    // });
-
-
-
-
-
 });
