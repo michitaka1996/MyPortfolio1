@@ -202,13 +202,9 @@ main {
   .top-animation-status {
     position: relative;
     width: 90%;
+    text-align: center;
     min-height: 200px;
     margin: 0 auto 0 auto; }
-    .top-animation-status-detail {
-      position: absolute;
-      top: 110px;
-      word-break: break-word;
-      text-align: center; }
 
 .acd-check {
   display: none; }
@@ -252,12 +248,14 @@ main {
   .acd-content-container {
     width: 100%;
     height: 100%;
-    overflow: hidden; }
+    overflow: hidden;
+    text-align: center; }
     .acd-content-container-slider {
       border: 1px solid;
       margin: 0 auto;
-      width: 50%;
-      height: 400px; }
+      width: 646px;
+      height: 400px;
+      position: relative; }
       @media screen and (max-width: 414px) {
         .acd-content-container-slider {
           width: 100%;
@@ -287,11 +285,7 @@ main {
         height: 100%; } }
   .acd-content-prof {
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 40px;
-    left: 45.5%; }
+    width: 150px; }
     @media screen and (max-width: 414px) {
       .acd-content-prof {
         position: absolute;
@@ -300,8 +294,7 @@ main {
   .acd-content-detail {
     min-height: 100px;
     color: white;
-    position: absolute;
-    top: 85%;
+    font-size: 24px;
     word-break: break-word;
     text-align: center; }
     @media screen and (max-width: 414px) {
@@ -322,7 +315,6 @@ main {
   opacity: 1;
   padding: 10px;
   transition: .7s;
-  /* 文書のレイアウトを崩さず可視に */
   visibility: visible; }
   @media screen and (max-width: 414px) {
     .acd-check:checked + .acd-label + .acd-content {
@@ -375,6 +367,54 @@ container
   .container-ornament .container-title:after {
     top: -28px; }
 
+#work-detail {
+  background: #FF3333;
+  box-sizing: border-box; }
+  @media screen and (max-width: 414px) {
+    #work-detail {
+      padding: 10px; } }
+  #work-detail .work-detail-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding-top: 20px;
+    margin-left: 18px; }
+    @media screen and (max-width: 414px) {
+      #work-detail .work-detail-title {
+        margin-left: 8px; } }
+  #work-detail .work-wrap {
+    overflow: hidden;
+    margin: 60px 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px 200px; }
+    @media screen and (max-width: 414px) {
+      #work-detail .work-wrap {
+        width: 100%;
+        height: 100%;
+        padding: 0; } }
+    #work-detail .work-wrap .swiper-container {
+      width: 400px;
+      height: 300px;
+      outline: 0;
+      float: left;
+      margin-bottom: 20px; }
+      @media screen and (max-width: 414px) {
+        #work-detail .work-wrap .swiper-container {
+          width: 333px;
+          height: 331px; } }
+    #work-detail .work-wrap .work-comment {
+      font-size: 24px;
+      color: white;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 0 30px; }
+      @media screen and (max-width: 414px) {
+        #work-detail .work-wrap .work-comment {
+          padding: 0 10px;
+          font-size: 18px; } }
+
 /*========================================
 news
 ========================================*/
@@ -398,7 +438,7 @@ news
 .fa-angle-down {
   font-family: "FontAwesome";
   position: absolute;
-  left: 50.65%; }
+  left: 50%; }
   @media screen and (max-width: 414px) {
     .fa-angle-down {
       position: relative;
@@ -410,25 +450,22 @@ news
 .fa-angle-left {
   position: absolute;
   top: 45%;
+  left: 0;
   color: white;
   z-index: 1; }
 
 .fa-angle-right {
   position: absolute;
   top: 45%;
-  left: 73.2%;
+  right: 0;
   color: white;
   z-index: 1; }
   @media screen and (max-width: 414px) {
     .fa-angle-right {
       position: absolute;
-      left: 93%; } }
+      left: 95%; } }
 
 .fa-laptop {
-  position: absolute;
-  top: 0;
-  left: 48%;
-  list-style: none;
   color: white;
   font-family: "FontAwesome"; }
   @media screen and (max-width: 414px) {
@@ -436,3 +473,7 @@ news
       position: absolute;
       top: 0;
       left: 110px; } }
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%; }

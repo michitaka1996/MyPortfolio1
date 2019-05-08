@@ -1,3 +1,4 @@
+
 //スコープ汚染を防ぐため即時関数
 $(function () {
     // var targetHeight = $('.js-hero-target').height();
@@ -83,6 +84,17 @@ $(function () {
 
     })();
     slider.init();
-    
-
 });
+
+
+var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                },
+        });
